@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .content.newContent
+    h1 Enter your name
+    form(method="post", action="/playlist",enctype="multipart/form-data")
+      div.username
+        input(type="text",name="user",placeholder="Your name...")
+      div
+        input(type="hidden",name="saveData",value=saveData)
+      div
+        input(type="submit",value="save results")

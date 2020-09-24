@@ -1,0 +1,184 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding: 56px 48px;
+  font-family: 'Epilogue', sans-serif;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+}
+h1 {
+  text-align: center;
+}
+ul {
+  padding-left: 0;
+  margin-left: 0;
+}
+ul li {
+  display: block;
+  list-style: none;
+}
+.playlists a,
+form input[type='submit'] {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  padding: 8px 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: transparent;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0) 50%, #fff 50%);
+  background-size: 100% 200%;
+  background-position: top;
+  border: 3px solid #fff;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+.playlists a:hover,
+form input[type='submit']:hover {
+  color: #000;
+  background-position: bottom;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 8px 24px;
+  font-size: 1.2rem;
+}
+nav ul {
+  display: flex;
+}
+nav a {
+  margin: 0 16px 0 0;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  margin: 0 8px;
+}
+nav a:hover {
+  border: 2px solid #fff;
+}
+.content {
+  width: 100%;
+  max-width: 1100px;
+}
+.content.newContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.content.newContent h1 {
+  margin-top: 0;
+}
+.content.newContent form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.content.newContent form div {
+  margin-top: 16px;
+}
+.content.newContent form input {
+  width: 100%;
+  font-family: 'Epilogue', sans-serif;
+  outline: none;
+  transition: all 0.5s ease;
+}
+.content.newContent form .username {
+  width: 40%;
+}
+.content.newContent form .username input {
+  padding: 16px 24px;
+  background-color: transparent;
+  border: 3px solid transparent;
+  border-bottom: 3px solid #fff;
+  font-size: 1rem;
+  color: #fff;
+}
+.content.newContent form .username input:focus {
+  border: 3px solid #fff;
+}
+.content.newContent form .username input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+.content.playlist .date {
+  text-align: center;
+}
+.content.playlist .saveData {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 48px;
+}
+.content.playlist .saveData tr {
+  border-bottom: 3px solid #fff;
+}
+.content.playlist .saveData tr td {
+  width: 50%;
+  text-align: center;
+  padding: 24px 16px;
+}
+.content.playlist p {
+  margin-top: 48px;
+  text-align: center;
+}
+.content .playlists {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 48px;
+}
+.content .playlists li {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin-bottom: 48px;
+  border: 3px solid #fff;
+  padding: 24px;
+}
+.content .playlists li.emptyLi {
+  height: 0px;
+  padding: 0;
+  border: none;
+  margin-bottom: 0;
+}
+.content .playlists li h2 {
+  margin: 0;
+}
+.content .playlists li p {
+  margin: 16px 0;
+}
+.content .playlists li p.date {
+  font-size: 0.8rem;
+  margin: 8px 0;
+}
+.content .playlists li a {
+  margin-top: 8px;
+}
+@media (max-width: 880px) {
+  .content .playlists li {
+    width: 100%;
+  }
+  .content.newContent form .username {
+    width: 100%;
+  }
+}

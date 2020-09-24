@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  .content
+    h1= title
+    block content
+    ul.playlists
+      each playlist in playlists
+        li
+          h2=playlist.user
+          p.date=moment(playlist.createdAt).format("DD/MM/YY - HH:mm")
+          p=playlist.saveData.length > 1 ? `${playlist.saveData.length} songs` : `${playlist.saveData.length} song`
+          a(href=`/playlist/${playlist.id}`) View the playlist
+      else
+        li There are no playlists
+      li.emptyLi

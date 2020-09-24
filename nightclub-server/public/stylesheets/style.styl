@@ -1,0 +1,157 @@
+*
+  box-sizing: border-box
+html {
+  height: 100%
+  margin: 0
+  padding: 0
+}
+body
+  padding: 56px 48px
+  font-family: 'Epilogue', sans-serif
+  background-color: black
+  color: white
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+  height: 100%
+  margin: 0
+h1
+  text-align: center
+ul
+  padding-left: 0
+  margin-left: 0
+  & li
+    display: block
+    list-style: none
+
+.playlists a, form input[type='submit']
+  display: block
+  text-decoration: none
+  color: white
+  padding: 8px 16px
+  text-transform: uppercase
+  font-weight: bold
+  background-color: transparent
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0) 50%, white 50%)
+  background-size: 100% 200%
+  background-position: top
+  border: 3px solid white
+  cursor: pointer
+  text-align: center
+  transition: all 0.5s ease
+
+  &:hover
+    color: black
+    background-position: bottom
+nav
+  position: fixed
+  top: 0
+  left: 0
+  padding: 8px 24px
+  font-size: 1.2rem
+  ul
+    display: flex
+  a
+    margin: 0 16px 0 0
+    color: white
+    text-decoration: none
+    padding: 8px
+    cursor: pointer
+    border: 2px solid transparent
+    transition: all 0.3s ease
+    margin: 0 8px
+
+    &:hover
+      border: 2px solid white
+.content
+  width: 100%
+  max-width: 1100px
+  &.newContent
+    height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    h1
+      margin-top: 0
+    form
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      width: 100%
+      div
+        margin-top: 16px
+      input
+        width: 100%
+        font-family: 'Epilogue', sans-serif
+        outline: none
+        transition: all 0.5s ease
+      .username
+        width: 40%
+        input
+          padding: 16px 24px
+          background-color: transparent
+          border: 3px solid transparent
+          border-bottom: 3px solid white
+          font-size: 1rem
+          color: white
+          &:focus
+            border: 3px solid white
+          &::placeholder
+            color: rgba(255,255,255,0.7)
+  &.playlist
+    .date
+      text-align: center
+    .saveData
+      // border: 3px solid white
+      width: 100%
+      border-collapse: collapse
+      margin-top: 48px
+      tr
+        border-bottom: 3px solid white
+        td
+          width: 50%
+          text-align: center
+          padding: 24px 16px
+    p
+      margin-top: 48px
+      text-align: center
+  & .playlists
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    margin-top: 48px
+
+    li
+      display: flex
+      flex-direction: column
+      width: 30%;
+      margin-bottom: 48px
+      border: 3px solid white
+      padding: 24px
+      &.emptyLi
+        height: 0px
+        padding: 0
+        border: none
+        margin-bottom: 0;
+      h2
+        margin: 0
+      p
+        margin: 16px 0
+        &.date
+          font-size: 0.8rem
+          margin: 8px 0
+      a
+        margin-top: 8px
+
+@media (max-width: 880px)
+  .content
+    .playlists
+      li
+        width: 100%
+    &.newContent
+      form
+        .username
+          width: 100%

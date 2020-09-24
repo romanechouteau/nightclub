@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  .content.playlist
+    h1= user
+    .date= moment(createdAt).format("DD/MM/YY - HH:mm")
+    table.saveData
+      each song in saveData
+        tr
+          td=`${song.bpm} BPM`
+          td=song.song
+      else
+        p There are no songs in this playlist
