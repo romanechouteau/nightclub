@@ -1,7 +1,6 @@
 const path = require('path');
 const pkg = require('./package.json');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const SocialTags = require('social-tags-webpack-plugin');
 const buildPath = './build/';
 
 module.exports = {
@@ -60,25 +59,22 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({'title': 'Nightclub'}),
-    new SocialTags({
-      appUrl: 'http://localhost:8080/',
-      facebook: {
-        'og:url': "http://localhost:8080/",
-        'og:type': "website",
-        'og:title': "Nightclub",
-        'og:image': 'src/assts/img/nightclub.jpg',
-        'og:description': "Clap to a rythm to find a music and make the little guy dance.",
-        'og:site_name': "Nightclub",
-      },
-      twitter: {
-        "twitter:card": "summary_large_image",
-        "twitter:creator": "@RomaneChouteau",
-        "twitter:url": "http://localhost:8080/",
-        "twitter:title": "Nightclub",
-        "twitter:description": "Clap to a rythm to find a music and make the little guy dance.",
-        "twitter:image": './src/assets/img/nightclub.jpg'
-      },
+    new HtmlWebpackPlugin({
+      title: 'Nightclub',
+      meta: {
+        'facebookurl': {property: 'og:url', content: process.env.PUBLIC_URL },
+        'facebooktype': {property: 'og:type', content: "website"},
+        'facebooktitle': {property: 'og:title', content: "Nightclub"},
+        'facebookimage': {property: 'og:image', content: "src/assts/img/nightclub.jpg"},
+        'facebookdescription': {property: 'og:description', content: "Clap to a rythm to find a music and make the little guy dance."},
+        'facebooksite_name': {property: 'og:site_name', content: "Nightclub"},
+        'twittercard': {property: "twitter:card", content: "summary_large_image"},
+        'twittercreator': {property: "twitter:creator", content: "@RomaneChouteau"},
+        'twitterurl': {property: "twitter:url", content: process.env.PUBLIC_URL },
+        'twittertitle': {property: "twitter:title", content: "Nightclub"},
+        'twitterdescription': {property: "twitter:description", content: "Clap to a rythm to find a music and make the little guy dance."},
+        'twitterimage': {property: "twitter:image", content: './src/assets/img/nightclub.jpg'}
+      }
     })
   ]
 }
