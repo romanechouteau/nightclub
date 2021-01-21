@@ -91,8 +91,15 @@ share.className = 'share'
 share.textContent = 'Share'
 share.target = '_blank'
 share.href = `https://twitter.com/intent/tweet?text=I%20made%20the%20little%20guy%20dance%20-&url=${PUBLIC_URL}`
-// actionBarRight.appendChild(results)
+
+const api = document.createElement('a')
+api.className = 'api'
+api.textContent = 'GetSongBPM'
+api.target = '_blank'
+api.href = 'https://getsongbpm.com'
+
 actionBarRight.appendChild(share)
+actionBarRight.appendChild(api)
 actionBar.appendChild(actionBarLeft)
 actionBar.appendChild(actionBarRight)
 
