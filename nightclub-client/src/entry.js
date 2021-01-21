@@ -25,7 +25,7 @@ const camera = new PerspectiveCamera();
 const renderer = new WebGLRenderer({antialias: true});
 const seedScene = new SeedScene();
 
-console.log(process.env)
+console.log(process.env.API_KEY)
 
 // scene
 scene.add(seedScene);
