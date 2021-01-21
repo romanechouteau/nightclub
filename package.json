@@ -1,0 +1,20 @@
+{
+  "name": "nightclub",
+  "version": "1.0.0",
+  "description": "# server ``` cd nightclub-server npm install npm run sequelize db:migrate npm run sequelize db:seed:all ```",
+  "main": "index.js",
+  "scripts": {
+    "build-client": "cd nightclub-client && yarn build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romanechouteau/nightclub.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/romanechouteau/nightclub/issues"
+  },
+  "homepage": "https://github.com/romanechouteau/nightclub#readme"
+}
