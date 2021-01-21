@@ -4,7 +4,7 @@
   "description": "# server ``` cd nightclub-server npm install npm run sequelize db:migrate npm run sequelize db:seed:all ```",
   "main": "index.js",
   "scripts": {
-    "build-client": "cd nightclub-client && yarn build",
+    "build-client": "cd nightclub-client && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
