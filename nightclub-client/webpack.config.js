@@ -1,5 +1,6 @@
 require('dotenv').config({path: __dirname + '/.env'});
 const path = require('path');
+const webpack = require('webpack');
 const pkg = require('./package.json');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const buildPath = './build/';
@@ -76,6 +77,10 @@ module.exports = {
         'twitterdescription': {property: "twitter:description", content: "Clap to a rythm to find a music and make the little guy dance."},
         'twitterimage': {property: "twitter:image", content: './src/assets/img/nightclub.jpg'}
       }
-    })
+    }),
+    new webpack.DefinePlugin( {
+      API_KEY: JSON.stringify(process.env.API_KEY),
+      PUBLIC_URL: JSON.stringify(process.env.PUBLIC_URL)
+    } )
   ]
 }

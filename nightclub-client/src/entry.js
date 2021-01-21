@@ -25,8 +25,6 @@ const camera = new PerspectiveCamera();
 const renderer = new WebGLRenderer({antialias: true});
 const seedScene = new SeedScene();
 
-console.log(process.env.API_KEY)
-
 // scene
 scene.add(seedScene);
 
@@ -92,7 +90,7 @@ const share = document.createElement('a')
 share.className = 'share'
 share.textContent = 'Share'
 share.target = '_blank'
-share.href = `https://twitter.com/intent/tweet?text=I%20made%20the%20little%20guy%20dance%20-&url=${process.env.PUBLIC_URL}`
+share.href = `https://twitter.com/intent/tweet?text=I%20made%20the%20little%20guy%20dance%20-&url=${PUBLIC_URL}`
 // actionBarRight.appendChild(results)
 actionBarRight.appendChild(share)
 actionBar.appendChild(actionBarLeft)
@@ -151,7 +149,7 @@ async function getSong() {
     })
   })
 
-  const songsJson = await fetch(`https://api.getsongbpm.com/tempo/?api_key=${process.env.API_KEY}&bpm=${bpm}`).then(res => res.json())
+  const songsJson = await fetch(`https://api.getsongbpm.com/tempo/?api_key=${API_KEY}&bpm=${bpm}`).then(res => res.json())
   const index = Math.floor(Math.random() * songsJson.tempo.length)
   let song = await fetch(`https://api.deezer.com/search?q=artist:"${encodeURIComponent(songsJson.tempo[0].artist.name)}"%20track:"${encodeURIComponent(songsJson.tempo[index].song_title)}"`)
   .then(res => res.json())
@@ -171,13 +169,12 @@ async function getSong() {
       return res.data[0]
     }
   })
-  share.href = `https://twitter.com/intent/tweet?text=I%20made%20the%20little%20guy%20dance%20at%20${bpm}%20BPM%20on%20${song.title_short}%20by%20${song.artist.name}%20-&url=${process.env.PUBLIC_URL}`
+  share.href = `https://twitter.com/intent/tweet?text=I%20made%20the%20little%20guy%20dance%20at%20${bpm}%20BPM%20on%20${song.title_short}%20by%20${song.artist.name}%20-&url=${PUBLIC_URL}`
   save.push({bpm, song: `${song.title_short} by ${song.artist.name}`})
   const listener = new AudioListener()
   camera.add(listener)
   const sound = new Audio( listener )
   const audioLoader = new AudioLoader()
-  console.log(song)
   audioLoader.load( song.preview, function( buffer ) {
     bpmDisplay.textContent = `${bpm} BPM`
     $('.calcBpm').fadeOut(400, () => $('.bpmDisplay').fadeIn())
@@ -186,7 +183,7 @@ async function getSong() {
     sound.play()
     seedScene.dance(bpm)
     sound.source.onended = function() {
-      share.href = `https://twitter.com/intent/tweet?text=I%20made%20the%20little%20guy%20dance%20-&url=${process.env.PUBLIC_URL}`
+      share.href = `https://twitter.com/intent/tweet?text=I%20made%20the%20little%20guy%20dance%20-&url=${PUBLIC_URL}`
       seedScene.stopDance()
       getSong()
       this.isPlaying = false;
