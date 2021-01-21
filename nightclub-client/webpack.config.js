@@ -1,3 +1,4 @@
+require('dotenv').config({path: __dirname + '/.env'});
 const path = require('path');
 const pkg = require('./package.json');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
