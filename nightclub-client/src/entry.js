@@ -83,32 +83,32 @@ const actionBarLeft = document.createElement('div')
 actionBarLeft.className = 'actionBarLeft'
 const actionBarRight = document.createElement('div')
 actionBarRight.className = 'actionBarRight'
-const results = document.createElement('div')
-results.className = 'results'
-results.textContent = 'Results'
+// const results = document.createElement('div')
+// results.className = 'results'
+// results.textContent = 'Results'
 const share = document.createElement('a')
 share.className = 'share'
 share.textContent = 'Share'
 share.target = '_blank'
-share.href = 'https://twitter.com/intent/tweet?text=I%20made%20the%20little%20guy%20dance%20-&url=http://localhost:8080/'
-actionBarRight.appendChild(results)
+share.href = `https://twitter.com/intent/tweet?text=I%20made%20the%20little%20guy%20dance%20-&url=${window.location.href}`
+// actionBarRight.appendChild(results)
 actionBarRight.appendChild(share)
 actionBar.appendChild(actionBarLeft)
 actionBar.appendChild(actionBarRight)
 
-const formResults = document.createElement('form')
-formResults.method = 'POST'
-formResults.action = 'http://localhost:3001/playlist/new'
-const saveInput =  document.createElement('input')
-saveInput.type = 'hidden'
-saveInput.name = 'saveData'
-formResults.appendChild(saveInput)
+// const formResults = document.createElement('form')
+// formResults.method = 'POST'
+// formResults.action = 'http://localhost:3001/playlist/new'
+// const saveInput =  document.createElement('input')
+// saveInput.type = 'hidden'
+// saveInput.name = 'saveData'
+// formResults.appendChild(saveInput)
 
 button.addEventListener('click', buttonClick)
-results.addEventListener('click', () => {
-  saveInput.value = JSON.stringify(save)
-  formResults.submit()
-})
+// results.addEventListener('click', () => {
+//   saveInput.value = JSON.stringify(save)
+//   formResults.submit()
+// })
 
 function buttonClick() {
   getSong()
@@ -200,7 +200,7 @@ section.append(calcBpm)
 section.append(bpmDisplay)
 section.append(button)
 section.append(actionBar)
-section.append(formResults)
+// section.append(formResults)
 
 
 // dom
