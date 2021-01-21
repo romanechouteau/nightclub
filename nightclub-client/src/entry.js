@@ -149,8 +149,7 @@ async function getSong() {
     })
   })
 
-  const API_KEY = 'eeaeb1891b221551ebf3c3220e027fff';
-  const songsJson = await fetch(`https://api.getsongbpm.com/tempo/?api_key=${API_KEY}&bpm=${bpm}`).then(res => res.json())
+  const songsJson = await fetch(`https://api.getsongbpm.com/tempo/?api_key=${process.env.API_KEY}&bpm=${bpm}`).then(res => res.json())
   const index = Math.floor(Math.random() * songsJson.tempo.length)
   let song = await fetch(`https://api.deezer.com/search?q=artist:"${encodeURIComponent(songsJson.tempo[0].artist.name)}"%20track:"${encodeURIComponent(songsJson.tempo[index].song_title)}"`)
   .then(res => res.json())
