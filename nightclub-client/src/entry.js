@@ -158,14 +158,14 @@ async function getSong() {
 
   const songsJson = await fetch(`https://api.getsongbpm.com/tempo/?api_key=${API_KEY}&bpm=${bpm}`).then(res => res.json())
   const index = Math.floor(Math.random() * songsJson.tempo.length)
-  let song = await fetch(`https://api.deezer.com/search?q=artist:"${encodeURIComponent(songsJson.tempo[0].artist.name)}"%20track:"${encodeURIComponent(songsJson.tempo[index].song_title)}"`)
+  let song = await fetch(`https://cors-anywhere.herokuapp.com/api.deezer.com/search?q=artist:"${encodeURIComponent(songsJson.tempo[0].artist.name)}"%20track:"${encodeURIComponent(songsJson.tempo[index].song_title)}"`)
   .then(res => res.json())
   .then(async (res) => {
     if (res.data.length === 0) {
       let i = 0
       let thisSong = null
       while (i < songsJson.tempo.length && res.data.length === 0) {
-        thisSong = await fetch(`https://api.deezer.com/search?q=artist:"${encodeURIComponent(songsJson.tempo[i].artist.name)}"%20track:"${encodeURIComponent(songsJson.tempo[i].song_title)}"`).then(res => res.json())
+        thisSong = await fetch(`https://cors-anywhere.herokuapp.com/api.deezer.com/search?q=artist:"${encodeURIComponent(songsJson.tempo[i].artist.name)}"%20track:"${encodeURIComponent(songsJson.tempo[i].song_title)}"`).then(res => res.json())
         if (thisSong.data.length > 0) {
           break
         }
