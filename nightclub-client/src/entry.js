@@ -182,7 +182,7 @@ async function getSong() {
   camera.add(listener)
   const sound = new Audio( listener )
   const audioLoader = new AudioLoader()
-  audioLoader.load( song.preview, function( buffer ) {
+  audioLoader.load( song.preview.replace('http:', 'https:'), function( buffer ) {
     bpmDisplay.textContent = `${bpm} BPM`
     $('.calcBpm').fadeOut(400, () => $('.bpmDisplay').fadeIn())
     sound.setBuffer( buffer )
