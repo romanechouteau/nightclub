@@ -99,7 +99,7 @@ const share = document.createElement('a')
 share.className = 'share'
 share.textContent = 'Share'
 share.target = '_blank'
-share.href = `https://twitter.com/intent/tweet?text=I%20made%20the%20little%20guy%20dance%20-&url=${PUBLIC_URL}`
+share.href = `https://twitter.com/intent/tweet?text=I%20made%20the%20little%20guy%20dance%0A&url=${PUBLIC_URL}`
 
 const credits = document.createElement('a')
 credits.className = 'credits'
