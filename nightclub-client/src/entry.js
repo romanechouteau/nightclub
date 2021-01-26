@@ -232,7 +232,7 @@ async function getSong() {
       return res.data[0]
     }
   })
-  share.href = `https://twitter.com/intent/tweet?text=I%20made%20the%20little%20guy%20dance%20at%20${bpm}%20BPM%20on%20${song.title_short}%20by%20${song.artist.name}%20-&url=${PUBLIC_URL}`
+  share.href = `https://twitter.com/intent/tweet?text=I%20made%20the%20little%20guy%20dance%20at%20${bpm}%20BPM%20on%20${song.title_short}%20by%20${song.artist.name}%0A&url=${PUBLIC_URL}`
   save.push({bpm, song: `${song.title_short} by ${song.artist.name}`})
   const listener = new AudioListener()
   camera.add(listener)
@@ -246,7 +246,7 @@ async function getSong() {
     sound.play()
     seedScene.dance(bpm)
     sound.source.onended = function() {
-      share.href = `https://twitter.com/intent/tweet?text=I%20made%20the%20little%20guy%20dance%20-&url=${PUBLIC_URL}`
+      share.href = `https://twitter.com/intent/tweet?text=I%20made%20the%20little%20guy%20dance%0A&url=${PUBLIC_URL}`
       seedScene.stopDance()
       getSong()
       this.isPlaying = false;
