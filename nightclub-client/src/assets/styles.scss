@@ -71,7 +71,7 @@ section {
     color: white;
     padding: 24px;
 
-    &.actionBarLeft, & .actionBarRight {
+    & .actionBarLeft, & .actionBarRight {
       display: flex;
       align-items: center;
 
@@ -85,8 +85,13 @@ section {
         transition: all 0.3s ease;
         margin: 0 8px;
 
+        &.credits {
+          opacity: 0.3;
+        }
+
         &:hover {
           border: 2px solid white;
+          opacity: 1;
         }
       }
     }
