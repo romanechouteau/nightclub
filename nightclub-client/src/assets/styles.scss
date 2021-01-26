@@ -85,7 +85,7 @@ section {
         transition: all 0.3s ease;
         margin: 0 8px;
 
-        &.credits {
+        &.romane {
           opacity: 0.3;
         }
 
@@ -100,6 +100,78 @@ section {
 
 .formResults {
   display: none;
+}
+
+.creditsPage {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: black;
+
+  & h1 {
+    text-transform: uppercase;
+    margin-bottom: 48px;
+  }
+
+  & .return {
+    cursor: pointer;
+    padding: 8px;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 72px;
+    height: 72px;
+
+    & img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  & .creditsWrapper {
+    display: flex;
+    border: 2px solid white;
+    padding: 48px;
+
+    & .creditsTitles, & .creditsValues {
+      display: flex;
+      flex-direction: column;
+      margin: 0 48px;
+
+      & span, & a {
+        padding: 4px 8px;
+        margin: 4px 0;
+        border: 2px solid transparent;
+      }
+    }
+
+    & .creditsTitles {
+      & span {
+        font-weight: bold;
+      }
+    }
+
+    & .creditsValues {
+      & a {
+        display: block;
+        width: fit-content;
+        text-decoration: none;
+        color: white;
+        transition: all 0.3s ease;
+
+        &:hover {
+          border: 2px solid white;
+        }
+      }
+    }
+  }
 }
 
 @keyframes blink {

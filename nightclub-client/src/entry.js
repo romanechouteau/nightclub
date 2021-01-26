@@ -14,6 +14,8 @@ const fetch = require('node-fetch')
 // const { window } = new JSDOM( "" );
 // const $ = require( "jquery" )( window )
 import $ from "jquery"
+import arrowBack from './assets/arrow_back.svg'
+import coverImage from './assets/nightclub.jpg'
 
 import { WebGLRenderer, PerspectiveCamera, Scene, Vector3, AudioListener, Audio, AudioLoader } from 'three'
 import SeedScene from './objects/Scene.js'
@@ -87,11 +89,11 @@ actionBarRight.className = 'actionBarRight'
 // results.className = 'results'
 // results.textContent = 'Results'
 
-const credits = document.createElement('a')
-credits.className = 'credits'
-credits.textContent = 'by romane chouteau'
-credits.target ='_blank'
-credits.href = 'https://github.com/romanechouteau'
+const romane = document.createElement('a')
+romane.className = 'romane'
+romane.textContent = 'by romane chouteau'
+romane.target ='_blank'
+romane.href = 'https://github.com/romanechouteau'
 
 const share = document.createElement('a')
 share.className = 'share'
@@ -99,17 +101,63 @@ share.textContent = 'Share'
 share.target = '_blank'
 share.href = `https://twitter.com/intent/tweet?text=I%20made%20the%20little%20guy%20dance%20-&url=${PUBLIC_URL}`
 
-const api = document.createElement('a')
-api.className = 'api'
-api.textContent = 'GetSongBPM'
-api.target = '_blank'
-api.href = 'https://getsongbpm.com'
+const credits = document.createElement('a')
+credits.className = 'credits'
+credits.textContent = 'Credits'
+credits.addEventListener('click', () => {
+  $('.creditsPage').css("display", "flex").hide().fadeIn()
+})
 
 actionBarRight.appendChild(share)
-actionBarRight.appendChild(api)
-actionBarLeft.appendChild(credits)
+actionBarRight.appendChild(credits)
+actionBarLeft.appendChild(romane)
 actionBar.appendChild(actionBarLeft)
 actionBar.appendChild(actionBarRight)
+
+const creditText = [
+  { key: 'apiBPM', title: 'BPM API', value: 'GetSongBPM', link: 'https://getsongbpm.com' },
+  { key: 'apiMusic', title: 'Music API', value: 'Deezer', link: 'https://developers.deezer.com/api' },
+  { key: 'model', title: '3D Model', value: 'KOMIRA.studio', link: 'https://sketchfab.com/3d-models/stickman-cd59f48ed6a7492da639efdc55f2c1f8' },
+  { key: 'animations', title: 'Animations', value: 'Mixamo', link: 'https://www.mixamo.com/#/' },
+]
+const creditsPage = document.createElement('div')
+creditsPage.className = 'creditsPage'
+const creditsTitle = document.createElement('h1')
+creditsTitle.textContent = 'Credits'
+const creditsWrapper = document.createElement('div')
+creditsWrapper.className = 'creditsWrapper'
+const creditsTitles = document.createElement('div')
+creditsTitles.className = 'creditsTitles'
+const creditsValues = document.createElement('div')
+creditsValues.className = 'creditsValues'
+
+creditText.forEach(val => {
+  const title = document.createElement('span')
+  title.textContent = val.title
+
+  const value = document.createElement('a')
+  value.textContent = val.value
+  value.target = '_blank'
+  value.href = val.link
+
+  creditsTitles.appendChild(title)
+  creditsValues.appendChild(value)
+})
+
+const returnArrow = document.createElement('div')
+returnArrow.className = 'return'
+const returnIcon = document.createElement('img')
+returnIcon.src = arrowBack
+returnArrow.appendChild(returnIcon)
+returnArrow.addEventListener('click', () => {
+  $('.creditsPage').fadeOut()
+})
+
+creditsPage.appendChild(returnArrow)
+creditsPage.appendChild(creditsTitle)
+creditsWrapper.appendChild(creditsTitles)
+creditsWrapper.appendChild(creditsValues)
+creditsPage.appendChild(creditsWrapper)
 
 // const formResults = document.createElement('form')
 // formResults.method = 'POST'
@@ -215,8 +263,19 @@ section.append(button)
 section.append(actionBar)
 // section.append(formResults)
 
+// HEAD
+const facebookImage = document.createElement('meta')
+facebookImage.setAttribute('property', 'og:image')
+facebookImage.content = `${PUBLIC_URL}${coverImage}`
+
+const twitterImage = document.createElement('meta')
+twitterImage.setAttribute('property', 'twitter:image')
+twitterImage.content = `${PUBLIC_URL}${coverImage}`
 
 // dom
+document.head.appendChild(facebookImage)
+document.head.appendChild(twitterImage)
 document.body.style.margin = 0;
 document.body.appendChild( renderer.domElement );
 document.body.appendChild( section );
+document.body.appendChild( creditsPage );

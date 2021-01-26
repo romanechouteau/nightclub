@@ -67,15 +67,13 @@ module.exports = {
         'facebookurl': {property: 'og:url', content: process.env.PUBLIC_URL },
         'facebooktype': {property: 'og:type', content: "website"},
         'facebooktitle': {property: 'og:title', content: "Nightclub"},
-        'facebookimage': {property: 'og:image', content: "src/assts/img/nightclub.jpg"},
         'facebookdescription': {property: 'og:description', content: "Clap to a rythm to find a music and make the little guy dance."},
         'facebooksite_name': {property: 'og:site_name', content: "Nightclub"},
         'twittercard': {property: "twitter:card", content: "summary_large_image"},
         'twittercreator': {property: "twitter:creator", content: "@RomaneChouteau"},
         'twitterurl': {property: "twitter:url", content: process.env.PUBLIC_URL },
         'twittertitle': {property: "twitter:title", content: "Nightclub"},
-        'twitterdescription': {property: "twitter:description", content: "Clap to a rythm to find a music and make the little guy dance."},
-        'twitterimage': {property: "twitter:image", content: './src/assets/img/nightclub.jpg'}
+        'twitterdescription': {property: "twitter:description", content: "Clap to a rythm to find a music and make the little guy dance."}
       }
     }),
     new webpack.DefinePlugin( {
