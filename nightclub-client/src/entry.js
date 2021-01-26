@@ -263,18 +263,7 @@ section.append(button)
 section.append(actionBar)
 // section.append(formResults)
 
-// HEAD
-const facebookImage = document.createElement('meta')
-facebookImage.setAttribute('property', 'og:image')
-facebookImage.content = `${PUBLIC_URL}${coverImage}`
-
-const twitterImage = document.createElement('meta')
-twitterImage.setAttribute('property', 'twitter:image')
-twitterImage.content = `${PUBLIC_URL}${coverImage}`
-
 // dom
-document.head.appendChild(facebookImage)
-document.head.appendChild(twitterImage)
 document.body.style.margin = 0;
 document.body.appendChild( renderer.domElement );
 document.body.appendChild( section );

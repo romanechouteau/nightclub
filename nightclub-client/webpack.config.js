@@ -30,7 +30,14 @@ module.exports = {
         use: 'babel-loader',
         exclude: path.resolve(__dirname, './node_modules/')
       },{
-        test: /\.(jpe?g|png|gif|svg|tga|gltf|babylon|mtl|pcb|pcd|prwm|obj|mat|mp3|ogg)$/i,
+        test: /nightclub\.jpg$/i,
+        exclude: path.resolve(__dirname, './node_modules/'),
+        loader: 'file-loader',
+        options: {
+          name: 'coverImage.[ext]',
+        }
+      },{
+        test: /(?<!nightclub)\.(jpe?g|png|gif|svg|tga|gltf|babylon|mtl|pcb|pcd|prwm|obj|mat|mp3|ogg)$/i,
         use: 'file-loader',
         exclude: path.resolve(__dirname, './node_modules/')
       },{
@@ -67,13 +74,15 @@ module.exports = {
         'facebookurl': {property: 'og:url', content: process.env.PUBLIC_URL },
         'facebooktype': {property: 'og:type', content: "website"},
         'facebooktitle': {property: 'og:title', content: "Nightclub"},
+        'facebookimage': {property: 'og:image', content: `${process.env.PUBLIC_URL}coverImage.jpg`},
         'facebookdescription': {property: 'og:description', content: "Clap to a rythm to find a music and make the little guy dance."},
         'facebooksite_name': {property: 'og:site_name', content: "Nightclub"},
         'twittercard': {property: "twitter:card", content: "summary_large_image"},
         'twittercreator': {property: "twitter:creator", content: "@RomaneChouteau"},
         'twitterurl': {property: "twitter:url", content: process.env.PUBLIC_URL },
         'twittertitle': {property: "twitter:title", content: "Nightclub"},
-        'twitterdescription': {property: "twitter:description", content: "Clap to a rythm to find a music and make the little guy dance."}
+        'twitterdescription': {property: "twitter:description", content: "Clap to a rythm to find a music and make the little guy dance."},
+        'twitterimage': {property: "twitter:image", content: `${process.env.PUBLIC_URL}coverImage.jpg`}
       }
     }),
     new webpack.DefinePlugin( {
