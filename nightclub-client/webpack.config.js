@@ -77,7 +77,7 @@ module.exports = {
         'facebookimage': {property: 'og:image', content: `${process.env.PUBLIC_URL}coverImage.jpg`},
         'facebookdescription': {property: 'og:description', content: "Clap to a rythm to find a music and make the little guy dance."},
         'facebooksite_name': {property: 'og:site_name', content: "Nightclub"},
-        'twittercard': {property: "twitter:card", content: "summary_large_image"},
+        'twittercard': {property: "twitter:card", content: "summary"},
         'twittercreator': {property: "twitter:creator", content: "@RomaneChouteau"},
         'twitterurl': {property: "twitter:url", content: process.env.PUBLIC_URL },
         'twittertitle': {property: "twitter:title", content: "Nightclub"},
